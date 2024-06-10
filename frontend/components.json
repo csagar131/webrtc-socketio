@@ -8,10 +8,10 @@
     "css": "src/index.css",
     "baseColor": "slate",
     "cssVariables": false,
-    "prefix": "tailwind.config.js"
+    "prefix": ""
   },
   "aliases": {
-    "components": "src/Components",
-    "utils": "src/lib/utils"
+    "components": "@/Components",
+    "utils": "@/lib/utils"
   }
 }

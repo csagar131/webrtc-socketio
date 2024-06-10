@@ -20,11 +20,7 @@ const StartMeetBtn = () => {
   };
 
   return (
-    <Button
-      onClick={handleBtnClick}
-      className="px-2 py-1 bg-slate-400 rounded-lg"
-      variant={"destructive"}
-    >
+    <Button onClick={handleBtnClick} className="px-2 py-1" variant={"default"}>
       Start Meet
     </Button>
   );

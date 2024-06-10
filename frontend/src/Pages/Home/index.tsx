@@ -1,8 +1,10 @@
+import { Input } from "@/Components/ui/input";
 import StartMeetBtn from "../../Components/StartMeetBtn";
 
 const Home = () => {
   return (
-    <div className="flex items-center justify-center h-[100vh]">
+    <div className="flex gap-2 items-center justify-center h-screen">
+      <Input placeholder="Enter Your Name..." className="w-[200px]" />
       <StartMeetBtn />
     </div>
   );
