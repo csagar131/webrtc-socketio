@@ -1,6 +1,6 @@
-import { Socket } from 'socket.io';
-import { v4 as uuid } from 'uuid';
-import IRoomParams from '../interfaces/IRoomParams';
+import { Socket } from "socket.io";
+import { v4 as uuid } from "uuid";
+import IRoomParams from "../interfaces/IRoomParams";
 
 const rooms: Record<string, string[]> = {};
 
@@ -8,7 +8,7 @@ export const roomHandler = (socket: Socket) => {
   const createRoom = () => {
     const roomId = uuid();
     socket.join(roomId);
-    socket.emit('room-created', { roomId });
+    socket.emit("room-created", { roomId });
     rooms[roomId] = [];
   };
 
@@ -18,18 +18,17 @@ export const roomHandler = (socket: Socket) => {
       socket.join(roomId);
 
       // new user joins the room
-
-      socket.on('ready', () => {
-        socket.to(roomId).emit('user-joined', { peerId });
+      socket.on("ready", () => {
+        socket.to(roomId).emit("user-joined", { peerId });
       });
 
-      socket.emit('get-users', {
+      socket.emit("get-users", {
         roomId,
         participants: rooms[roomId],
       });
     }
   };
 
-  socket.on('joined-room', joinRoom);
-  socket.on('create-room', createRoom);
+  socket.on("create-room", createRoom);
+  socket.on("joined-room", joinRoom);
 };

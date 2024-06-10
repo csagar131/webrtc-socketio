@@ -31,13 +31,14 @@ export const peerReducer = (state: PeerState, action: PeerAction) => {
       });
       return newState;
     }
-    // case REMOVE_PEER:
-    //   const newPeers = { ...state.peers };
+    // case REMOVE_PEER: {
+    //   const newPeers = { ...state };
     //   delete newPeers[action.payload.peerId];
     //   return {
     //     ...state,
-    //     peers: newPeers,
+    //     ...newPeers,
     //   };
+    // }
     default:
       return { ...state };
   }

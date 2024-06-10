@@ -1,4 +1,4 @@
-import { ADD_PEER, addPeerAction } from "@/Actions/peerActions";
+import { addPeerAction } from "@/Actions/peerActions";
 import VideoFeedPlayer from "@/Components/VideoFeedPlayer";
 import { SocketContext } from "@/Context/SocketContext";
 import { peerReducer } from "@/Reducers/peerReducer";
@@ -44,14 +44,12 @@ const Room = () => {
     if (!user || !stream) return;
 
     socket.on("user-joined", ({ peerId }: { peerId: string }) => {
+      // new user join the room
+      // call that new user and share your stream
       const call = user.call(peerId, stream);
 
       call.on("stream", () => {
         dispatch(addPeerAction(peerId, stream));
-        dispatch({
-          type: ADD_PEER,
-          payload: { peerId, stream },
-        });
       });
     });
 
