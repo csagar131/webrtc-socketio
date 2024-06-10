@@ -1,10 +1,14 @@
 import "./App.css";
+import Home from "./Pages/Home";
+import { Route, Routes } from "react-router-dom";
+import Room from "./Pages/Room";
 
 function App() {
   return (
-    <>
-      <h1>WebRTC</h1>
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/room/:id" element={<Room />} />
+    </Routes>
   );
 }
 
